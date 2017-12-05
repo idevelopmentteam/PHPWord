@@ -40,6 +40,12 @@ abstract class AbstractPart
     protected $dateFormat = 'Y-m-d\TH:i:sP';
 
     /**
+     * Current XMLWriter
+     *
+     * @var \PhpOffice\Common\XMLWriter
+     */
+    protected $xmlWriter;
+    /**
      * Write part
      *
      * @return string
@@ -77,6 +83,9 @@ abstract class AbstractPart
      */
     protected function getXmlWriter()
     {
+        if(!is_null($this->xmlWriter)){
+            return $this->xmlWriter;
+        }
         $useDiskCaching = false;
         if (!is_null($this->parentWriter)) {
             if ($this->parentWriter->isUseDiskCaching()) {

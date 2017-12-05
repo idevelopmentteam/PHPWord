@@ -75,7 +75,7 @@ class Chart extends AbstractPart
      */
     public function write()
     {
-        $xmlWriter = $this->getXmlWriter();
+        $xmlWriter = $this->xmlWriter = $this->getXmlWriter();
 
         $xmlWriter->startDocument('1.0', 'UTF-8', 'yes');
         $xmlWriter->startElement('c:chartSpace');
